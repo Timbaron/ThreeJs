@@ -13,8 +13,18 @@ const Shirt = () => {
   const logoTexture = useTexture(snap.logoDecal);
   const FullTexture = useTexture(snap.fullDecal);
 
+  /* `useFrame` is a hook provided by the `@react-three/fiber` library that allows us to perform
+  actions on every frame of the 3D scene. In this case, the function passed to `useFrame` is using
+  the `easing.dampC` function from the `maath` library to smoothly transition the color of the
+  `lambert1` material of the shirt mesh to the `color` value in the `snap` object from our `store`.
+  The `delta` parameter represents the time elapsed since the last frame, which is used to calculate
+  the smooth transition. */
+  useFrame((state, delta) =>
+    easing.dampC(materials.lamber1.color, snap.color, 0.25, delta)
+  );
+  const stateString = JSON.stringify(snap);
   return (
-    <group>
+    <group key={stateString}>
       <mesh
         castShadow
         geometry={nodes.T_Shirt_male.geometry}
