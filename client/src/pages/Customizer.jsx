@@ -26,7 +26,7 @@ const Customizer = () => {
             {...slideAnimation("left")}
           >
             <div className="flex items-center min-h-screen">
-              <div className="Editortabs-container tabs">
+              <div className="editortabs-container tabs">
                 {EditorTabs.map((tab) => (
                   <Tab key={tab.name} tab={tab.name} handleClick={() => {}} />
                 ))}
