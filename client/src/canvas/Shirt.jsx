@@ -20,7 +20,7 @@ const Shirt = () => {
   The `delta` parameter represents the time elapsed since the last frame, which is used to calculate
   the smooth transition. */
   useFrame((state, delta) =>
-    easing.dampC(materials.lamber1.color, snap.color, 0.25, delta)
+    easing.dampC(materials.lambert1.color, snap.color, 0.25, delta)
   );
   const stateString = JSON.stringify(snap);
   return (
